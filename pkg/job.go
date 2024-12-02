@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Enum.
 type JobProcesses uint8
 
 const (
@@ -18,7 +19,7 @@ var processName = map[JobProcesses]string{
 
 type Job[T int | []T] struct {
 	Process JobProcesses
-	Result  chan<- any
+	Result  chan<- any // Could be an error or the data
 	Data    T
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// Usage example
+	// Usage example:
 	res := make(chan any, 1)
 	defer close(res)
 	job, err := pkg.NewJob(pkg.Fib, res, 20)
@@ -18,6 +18,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Initialize the worker pool with desired size
 	wp := pkg.NewWorkerPool(2)
 	go wp.AssignJob(*job)
 
